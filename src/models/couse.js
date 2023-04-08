@@ -1,13 +1,13 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+// const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-    const Course = sequelize.define('Couse', {
+    const Course = sequelize.define('Course', {
       name: DataTypes.STRING,
       descripiton: DataTypes.STRING,
       creation_date: DataTypes.DATE,
-      active: DataTypes.BOOLEAN
+      active: DataTypes.BOOLEAN,
+      duration: DataTypes.INTEGER,
     });
 
   return Course;

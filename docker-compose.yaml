@@ -14,8 +14,8 @@ services:
     ports:
       - 3001:3001
     environment:
-      - DB_HOST=mysql
-      - DB_NAME=orm_trybe
+      - DB_HOST=coursesAPI_DB
+      - DB_NAME=coursesAPI_DB
       - DB_USER=root
       - DB_PASSWORD=password
       - SERVER_PORT=3001
@@ -27,4 +27,4 @@ services:
     tty: true # -t
     stdin_open: true # -i
     depends_on:
-      - mysql
+      - coursesAPI_DB

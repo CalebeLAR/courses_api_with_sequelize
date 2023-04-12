@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       duration: DataTypes.INTEGER,
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE
+    },
+    {
+      tableName: 'courses'
     });
 
   return Course;

@@ -22,7 +22,7 @@ const update = async (id, course) => {
 };
 
 const destroy = async (id) => {
-  await Course.destroy({ where: id });
+  await Course.destroy({ where: { id } });
   return null
 };
 

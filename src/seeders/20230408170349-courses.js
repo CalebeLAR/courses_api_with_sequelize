@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Courses', [
+    await queryInterface.bulkInsert('courses', [
       {
         name: 'FullStack',
         description: 'Formação de Desenvolvedores FullStack Junior',
@@ -22,7 +22,7 @@ module.exports = {
         name: 'Back-end',
         description: 'Formação de Desenvolvedores Back-end Junior',
         creation_date: '2023-01-01T00:00:00', 
-        active: true,
+        active: false,
         duration: 6
       },
       {
@@ -36,6 +36,6 @@ module.exports = {
 },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Courses', null, {});
+    await queryInterface.bulkDelete('courses', null, {});
   }
 };

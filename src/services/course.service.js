@@ -10,7 +10,26 @@ const getById = async (id) => {
   return courses;
 };
 
+const create = async (course) => {
+  const createdCourse = await Course.create(course);
+  return createdCourse;
+};
+
+const update = async (id, course) => {
+  const [updatedCourse] = await Course.update(course, { where: id });
+  if (!updatedCourse) return null;
+  return course;
+};
+
+const destroy = async (id) => {
+  await Course.destroy({ where: id });
+  return null
+};
+
 module.exports = {
   getAll,
-  getById ,
+  getById,
+  create,
+  update,
+  destroy,
 }

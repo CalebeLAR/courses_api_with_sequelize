@@ -18,10 +18,6 @@ module.exports = {
       creation_date: {
         type: Sequelize.DATE
       },
-      duration: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
       active: {
         type: Sequelize.BOOLEAN
       },

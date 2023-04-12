@@ -1,5 +1,4 @@
 'use strict';
-// const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
     const Course = sequelize.define('Course', {
@@ -8,6 +7,8 @@ module.exports = (sequelize, DataTypes) => {
       creation_date: DataTypes.DATE,
       active: DataTypes.BOOLEAN,
       duration: DataTypes.INTEGER,
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE
     });
 
   return Course;

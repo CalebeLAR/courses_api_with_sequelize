@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   const Student = sequelize.define('Student', {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    birthDay: DataTypes.DATE,
+    birthday: DataTypes.DATE,
     active: DataTypes.BOOLEAN,
     idCourse: DataTypes.INTEGER
   },

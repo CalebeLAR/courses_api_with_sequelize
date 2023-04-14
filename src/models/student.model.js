@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
     timestamps: false
   });
-  Student.associations = (models) => {
-    Student.belongsTo(models.course, {
+  Student.associate = (model) => {
+    Student.belongsTo(model.Course, {
       foreignKey: 'idCourse',
       as: 'course'
     })

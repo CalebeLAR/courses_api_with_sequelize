@@ -5,8 +5,17 @@ const getAll = async () => {
   return courses;
 };
 
-const getById = async (id) => {
+// const getById = async (id) => {
+//   const courses = await Course.findByPk(id);
+//   return courses;
+// };
+
+const getById = async (id, withStudents=true) => {
   const courses = await Course.findByPk(id);
+  if(withStudents) {
+    const students = await courses.getStudents()
+    courses.dataValues.students = students;
+  };
   return courses;
 };
 

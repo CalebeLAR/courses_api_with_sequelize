@@ -5,9 +5,17 @@ const getAll = async (_req, res) => {
   res.status(200).json(courses);
 }
 
+// const getById = async (req, res) => {
+//   const { id } = req.params;
+//   const courses = await courseService.getById(id);
+//   res.status(200).json(courses);
+// }
+
+// lizeLoad
 const getById = async (req, res) => {
   const { id } = req.params;
-  const courses = await courseService.getById(id);
+  const { withStudent } = req.query;
+  const courses = await courseService.getById(id, withStudent === 'true');
   res.status(200).json(courses);
 }
 

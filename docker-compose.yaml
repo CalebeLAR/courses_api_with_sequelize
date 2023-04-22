@@ -7,6 +7,7 @@ services:
       - MYSQL_ROOT_PASSWORD=password
     ports:
       - 3306:3306
+      
   coursesAPI:
     container_name: coursesAPI
     image: node:16

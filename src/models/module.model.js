@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     duration: DataTypes.DECIMAL,
     qtblock: DataTypes.DECIMAL
   }, {
-    tableName: 'module',
+    tableName: 'modules',
     timestamps: false,
   });
 

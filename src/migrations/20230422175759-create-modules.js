@@ -10,15 +10,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       duration: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
       qtblock: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
     });

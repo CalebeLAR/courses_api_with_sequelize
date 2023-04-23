@@ -6,26 +6,26 @@ module.exports = {
     await queryInterface.createTable('courses_modules', {
       id_course: {
         allowNull: false,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-        references: {
+        type: Sequelize.STRING,
+        reference: {
           model: 'courses',
           key: 'id'
         },
         onDelete: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        primaryKey: true,
       },
 
       id_module: {
         allowNull: false,
-        primaryKey: true,
         type: Sequelize.STRING,
-        references: {
+        reference: {
           model: 'modules',
           key: 'id'
         },
         onDelete: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        primaryKey: true,
       }
 
     });

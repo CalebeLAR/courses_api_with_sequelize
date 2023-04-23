@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: DataTypes.DATE
     },
     {
-      tableName: 'courses'
+      tableName: 'courses',
+      underscored: true
     });
 
     Course.associate = (model) => {

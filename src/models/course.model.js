@@ -1,4 +1,10 @@
 'use strict';
+/**
+ * 
+ * @param {import('sequelize').Sequelize} sequelize
+ * @param {import('sequelize').DataTypes} DataTypes 
+ */
+
 
 module.exports = (sequelize, DataTypes) => {
     const Course = sequelize.define('Course', {
@@ -12,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       tableName: 'courses',
-      underscored: true
+      timestamps: true,
+      underscored: true,
     });
 
     Course.associate = (model) => {

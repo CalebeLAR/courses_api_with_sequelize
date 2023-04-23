@@ -21,12 +21,12 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         defaultValue: Sequelize.fn('now'),
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         defaultValue: Sequelize.fn('now'), // criação dentro do banco de dados, marca o dia de registro no banco de dados
         type: Sequelize.DATE

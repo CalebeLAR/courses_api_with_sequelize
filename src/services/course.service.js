@@ -1,7 +1,14 @@
-const { Course } = require('../models');
+const { Course, Student, Module } = require('../models');
 
 const getAll = async () => {
-  const courses = await Course.findAll();
+  const courses = await Course.findAll(
+    {
+      include: [
+        { model: Student, as: 'students' },
+        { model: Module, as: 'modules', through: { attributes: [] } }
+      ]
+    }
+  );
   return courses;
 };
 
@@ -10,17 +17,31 @@ const getAll = async () => {
 //   return courses;
 // };
 
-const getById = async (id, withStudents=true) => {
+const getById = async (id, withStudents = true) => {
   const courses = await Course.findByPk(id);
-  if(withStudents) {
+  if (withStudents) {
     const students = await courses.getStudents()
     courses.dataValues.students = students;
   };
   return courses;
 };
 
-const create = async (course) => {
-  const createdCourse = await Course.create(course);
+// criando um curso com todos os metodos necessários:
+const create = async (
+  {
+    name,
+    description,
+    creation_date,
+    active,
+    duration,
+    modules
+  }) => {
+  const createdCourse = await Course.create(
+    {name, description,creation_date, active, duration}
+    );
+  const arrModules = modules.map(module => Module.create(module))
+  
+  createdCourse.dataValues.modules = await Promise.all(arrModules);
   return createdCourse;
 };
 

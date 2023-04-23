@@ -1,4 +1,4 @@
-const { Course, Student, Module } = require('../models');
+const { Course, Student, Module, sequelize } = require('../models');
 
 const getAll = async () => {
   const courses = await Course.findAll(
@@ -28,21 +28,25 @@ const getById = async (id, withStudents = true) => {
 
 // criando um curso com todos os metodos necessários:
 const create = async (
-  {
-    name,
-    description,
-    creation_date,
-    active,
-    duration,
-    modules
-  }) => {
-  const createdCourse = await Course.create(
-    {name, description,creation_date, active, duration}
-    );
-  const arrModules = modules.map(module => Module.create(module))
-  
-  createdCourse.dataValues.modules = await Promise.all(arrModules);
-  return createdCourse;
+  { name, description, creation_date, active, duration, modules}
+  ) => {
+  try {
+    return await sequelize.transaction( async (t) => {
+      const createdCourse = await Course.create(
+        {name, description,creation_date, active, duration},
+        {transaction: t}
+        );
+      const arrPromiseModules = modules.map(m => Module.create(m, {transaction: t}))
+      const arrModules = await Promise.all(arrPromiseModules);
+
+      await createdCourse.addModules(arrModules, {transaction: t})
+      createdCourse.dataValues.modules = arrModules;
+      return createdCourse;
+    });
+  } catch (err) {
+    return err
+
+  }
 };
 
 const update = async (id, course) => {

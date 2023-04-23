@@ -10,15 +10,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       creation_date: {
+        defaultValue: Sequelize.fn('now'),
         type: Sequelize.DATE
       },
       active: {
+        defaultValue: 1,
         type: Sequelize.BOOLEAN
       },
       created_at: {

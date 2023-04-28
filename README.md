@@ -1,2 +1,3 @@
-# aprendendo sequelize
+# autenticação com Json Web Token
+
 

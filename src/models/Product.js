@@ -1,5 +1,5 @@
 /**
- * @param {import('sequelize').Sequelize} Sequelize
+ * @param {import('sequelize').Sequelize} sequelize
  * @param {import('sequelize').DataTypes} DataTypes
  */
 
@@ -19,6 +19,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.NUMBER,
     },
+    advertiserId: {
+      allowNull: true,
+      type: DataTypes.NUMBER,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+      references: {
+        model: 'Users',
+        key: 'id',
+      }
+    }
   },{
     tableName: 'Products',
     underscored: true,

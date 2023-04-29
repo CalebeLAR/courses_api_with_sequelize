@@ -2,11 +2,10 @@
  * 
  * @param {import('sequelize').Sequelize} Sequelize 
  * @param {import('sequelize').DataTypes} DataTypes 
- * @returns 
  */
 
 module.exports = (Sequelize, DataTypes) => {
-  const Login = Sequelize.define('Login', {
+  const User = Sequelize.define('User', {
     id: {
       allowNull: false,
       primaryKey: true,
@@ -28,8 +27,8 @@ module.exports = (Sequelize, DataTypes) => {
     }
   }, {
     underscored: false,
-    tableName: 'Logins'
+    tableName: 'Users'
   });
 
-  return Login;
+  return User;
 }

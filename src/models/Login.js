@@ -13,20 +13,20 @@ module.exports = (Sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     userName: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.STRING,
     },
     email: {
-      allowNull: true,
+      allowNull: false,
       unique: true,
       type: DataTypes.STRING,
     },
     password: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.STRING,
     }
   }, {
-    underscored: false,
+    underscored: true,
     tableName: 'Logins'
   });
 

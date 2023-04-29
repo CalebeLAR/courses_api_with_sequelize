@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     timePost: {
       allowNull: false,
       type: DataTypes.DATE,
-      defaultValue: Date.now(),
+      defaultValue: DataTypes.fn('now'),
     },
     userId: {
       allowNull: true,
